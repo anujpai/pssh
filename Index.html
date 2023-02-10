@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ssh Generator</title>
+</head>
+<body>
+  <h1>ssh Generator</h1>
+  <p>Enter a word to generate a ssh:</p>
+  <input type="text" id="word">
+  <button onclick="generatePassword()">Generate</button>
+  <p>Generated ssh: <span id="output"></span></p>
+  <button id="copy-button" onclick="copyPassword()">Copy</button>
+  <script>
+    function generatePassword() {
+      const word = document.getElementById("word").value;
+      const suffix = word.substr(0, 2);
+      const prefix = word.substr(word.length - 2, word.length);
+      document.getElementById("output").innerHTML = suffix + "Anujpai@2003" + prefix;
+    }
+
+    function copyPassword() {
+      const password = document.getElementById("output").innerHTML;
+      navigator.clipboard.writeText(password);
+    }
+  </script>
+</body>
+</html>
